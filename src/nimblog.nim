@@ -1,6 +1,10 @@
-import jester, asyncdispatch
+import jester, asyncdispatch,os,strutils
 import views/createpost,views/home,views/posts,views/extra
 import database
+
+var settings = newSettings()
+if existsEnv("PORT"):
+  settings.port = Port(parseInt(getEnv("PORT")))
 
 let db = newDatabase()
 
